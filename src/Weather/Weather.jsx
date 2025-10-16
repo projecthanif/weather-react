@@ -45,7 +45,7 @@ function Weather() {
       </div>
       <div className="temp">
         <h1 className="temp-number">
-          {data.current.temp_c} <sup className="temp-degree">o</sup>
+          {data.current.temp_c} <sup className="temp-degree">°</sup>
         </h1>
         {/* <div className="forcasts">
           <Forcast />
@@ -66,7 +66,7 @@ function Weather() {
           <section className="info">
             <h3 className="info-title">Feels like</h3>
             <p className="info-detail">
-              {data.current.feelslike_c} <sup>0</sup>
+              {data.current.feelslike_c} <sup>°</sup>
             </p>
           </section>
           <section className="info">
