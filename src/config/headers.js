@@ -1,0 +1,27 @@
+const headers = {
+  "Transfer-Encoding": "chunked",
+  Connection: "keep-alive",
+  Vary: "Accept-Encoding",
+  "CDN-PullZone": "93447",
+  "CDN-Uid": "8fa3a04a-75d9-4707-8056-b7b33c8ac7fe",
+  "CDN-RequestCountryCode": "GB",
+  Age: "0",
+  "x-weatherapi-qpm-left": "4999994",
+  "x-varnish": "602340812",
+  "CDN-ProxyVer": "1.38",
+  "CDN-RequestPullSuccess": "True",
+  "CDN-RequestPullCode": "200",
+  "CDN-CachedAt": "10/16/2025 01:18:54",
+  "CDN-EdgeStorageId": "860",
+  "CDN-RequestId": "2b30e77c01a610f3da5f091fb1a05b6f",
+  "CDN-Cache": "EXPIRED",
+  "CDN-Status": "200",
+  "CDN-RequestTime": "0",
+  "Cache-Control": "public, max-age=180",
+  "Content-Type": "application/json",
+  Date: "Thu, 16 Oct 2025 01:18:54 GMT",
+  Server: "BunnyCDN-DE1-864",
+  Via: "1.1 varnish (Varnish/7.1)",
+};
+
+export default headers;
