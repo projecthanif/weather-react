@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./Weather.css";
 import Forcast from "./Forcast/Forcast";
+import Heading from "./Heading/Heading";
 import headers from "../config/headers";
 
 function Weather() {
   const key = "c4f4d029024349afaa702941251610";
-  const place = "maiduguri";
-
+  const [place, setPlace] = useState("FCT - Abuja Nigeria");
   const [data, setData] = useState(null);
 
-  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${place}&days=5&aqi=no&alerts=no`;
   useEffect(() => {
+    const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${place}&days=1&aqi=no&alerts=no`;
     fetch(apiUrl, {
       headers: headers,
     })
@@ -19,7 +19,7 @@ function Weather() {
         setData(data);
       })
       .catch((res) => console.error(res));
-  });
+  }, [place]);
 
   if (!data || !data.location) {
     return (
@@ -37,37 +37,22 @@ function Weather() {
 
   return (
     <div className="screen">
-      <div className="heading">
-        <section className="heading-title">
-          {`${data.location.country}, ${data.location.name}`}
-        </section>
-        <section className="heading-date">{data.location.localtime}</section>
-      </div>
+      <Heading data={data} setPlace={setPlace} />
       <div className="temp">
-        <h1 className="temp-number">
-          {data.current.temp_c} <sup className="temp-degree">°</sup>
-        </h1>
-        {/* <div className="forcasts">
-          <Forcast />
-          <Forcast />
-          <Forcast />
-          <Forcast />
-          <Forcast />
-          <Forcast />
-          <Forcast />
-          <Forcast />
-          <Forcast />
-          <Forcast />
-          <Forcast />
-          <Forcast />
-        </div> */}
-
+        <h1 className="temp-number">{data.current.temp_c}°</h1>
+        {data.forecast.forecastday.map((forecasts) => {
+          return (
+            <div className="forcasts">
+              {forecasts.hour.map((forecast, index) => (
+                <Forcast forecast={forecast} index={index} />
+              ))}
+            </div>
+          );
+        })}
         <div className="additions">
           <section className="info">
             <h3 className="info-title">Feels like</h3>
-            <p className="info-detail">
-              {data.current.feelslike_c} <sup>°</sup>
-            </p>
+            <p className="info-detail">{data.current.feelslike_c}°</p>
           </section>
           <section className="info">
             <h3 className="info-title">Wind</h3>

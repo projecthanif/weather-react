@@ -14,10 +14,24 @@
   gap: 5px;
 }
 
+.place {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .heading-title {
   font-size: 1.3rem;
   font-weight: bold;
   color: rgb(39, 38, 38);
+  margin-right: 5px;
+}
+
+.place-select {
+  border-radius: 1px solid black;
+  padding: 2px;
+  font-size: 1rem;
+  color: rgb(39, 38, 38);
+  border-radius: 5px;
 }
 
 .heading-date {
