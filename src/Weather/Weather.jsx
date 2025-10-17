@@ -10,7 +10,7 @@ function Weather() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${place}&days=1&aqi=no&alerts=no`;
+    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${place}&days=1&aqi=no&alerts=no`;
     fetch(apiUrl, {
       headers: headers,
     })
